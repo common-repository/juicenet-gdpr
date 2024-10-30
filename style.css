@@ -1,0 +1,3 @@
+@import  url('css/gdpr.css');
+#juice-cs-banner { display: none; }
+.juice-banner-content > p { font-size:14px !important; color: #fff !important; font-family: Helvetica,Arial,FreeSans,sans-serif !important; line-height:1.5 !important; }

@@ -1,0 +1,22 @@
+<?php if(!function_exists('add_action')){ exit; }
+
+/* FUNZIONE CHE AGGIUNGE IL BANNER DI AVVISO NEL FOOTER DEL SITO */
+//add_action('wp_footer', 'juicenet_gdpr_banner', 100 );
+function juicenet_gdpr_banner() {
+	if(get_option('juicenet_gdpr_show_banner') != "on") {
+		return;
+	}
+
+	if(strlen(get_option('juicenet_gdpr_nome_sito')) <=0 || strlen(get_option('juicenet_gdpr_titolare_sito')) <=0 || strlen(get_option('juicenet_gdpr_email_sito')) <=0 || strlen(get_option('juicenet_gdpr_cookie_page')) <=0  || strlen(get_option('juicenet_gdpr_privacy_page')) <=0 ) {
+		echo '<div id="juice-cs-banner" style="top: 0px !important; left: 0px !important; position: fixed !important; width: 100% !important; z-index: 99999998 !important; background-color: black;"><div class="juice-cs-content" style="display:block; margin:0 auto; padding: 20px; width:auto; font-family: Helvetica,Arial,FreeSans,sans-serif;font-size:14px !important;background:#000;color:#fff;"><div class="juice-cs-rationale" style="max-width: 900px; position:relative; margin: 0 auto;"><a class="juice-cs-close-btn" style="margin:0 !important; text-decoration:none !important; font-size: 20px !important; color:#fff !important; position: absolute !important; top: 0 !important; right: 0 !important; border: none !important;" href="javascript:void(0)">×</a><div class="juice-banner-content"><p>Please compile all field of plugin for show correct informations.</p></div></div></div></div>';	
+	
+		return;
+	}
+	
+	if(get_locale()=="it_IT") {
+		echo '<div id="juice-cs-banner" style="top: 0px !important; left: 0px !important; position: fixed !important; width: 100% !important; z-index: 99999998 !important; background-color: black;"><div class="juice-cs-content" style="display:block; margin:0 auto; padding: 20px; width:auto; font-family: Helvetica,Arial,FreeSans,sans-serif;font-size:14px !important;background:#000;color:#fff;"><div class="juice-cs-rationale" style="max-width: 900px; position:relative; margin: 0 auto;"><a class="juice-cs-close-btn" style="margin:0 !important; text-decoration:none !important; font-size: 20px !important; color:#fff !important; position: absolute !important; top: 0 !important; right: 0 !important; border: none !important;" href="javascript:void(0)">×</a><div class="juice-banner-content"><p>Informativa</p><p>Questo sito o gli strumenti terzi da questo utilizzati si avvalgono di cookie necessari al funzionamento ed utili alle finalità illustrate nella cookie policy. Se vuoi saperne di più o negare il consenso a tutti o ad alcuni cookie, consulta la <a style="text-decoration:underline; color:#fff;  font-size:14px; font-weight:900; " href="'.get_site_url()."/".get_option('juicenet_gdpr_cookie_page').'" class="juice-cs-cookie-policy-lnk">cookie policy</a>.<br>Chiudendo questo banner, scorrendo questa pagina, cliccando su un link o proseguendo la navigazione in altra maniera, acconsenti all’uso dei cookie.</p></div></div></div></div>';		
+	} else {
+		echo '<div id="juice-cs-banner" style="top: 0px !important; left: 0px !important; position: fixed !important; width: 100% !important; z-index: 99999998 !important; background-color: black;"><div class="juice-cs-content" style="display:block; margin:0 auto; padding: 20px; width:auto; font-family: Helvetica,Arial,FreeSans,sans-serif;font-size:14px !important;background:#000;color:#fff;"><div class="juice-cs-rationale" style="max-width: 900px; position:relative; margin: 0 auto;"><a class="juice-cs-close-btn" style="margin:0 !important; text-decoration:none !important; font-size: 20px !important; color:#fff !important; position: absolute !important; top: 0 !important; right: 0 !important; border: none !important;" href="javascript:void(0)">×</a><div class="juice-banner-content"><p>Notice</p><p>This website or its third-party tools use cookies, which are necessary to its functioning and required to achieve the purposes illustrated in the cookie policy. If you want to know more or withdraw your consent to all or some of the cookies, please refer to the <a style="text-decoration:underline; color:#fff;  font-size:14px; font-weight:900; " href="'.get_site_url()."/".get_option('juicenet_gdpr_cookie_page').'" class="juice-cs-cookie-policy-lnk">cookie policy</a>.<br>By closing this banner, scrolling this page, clicking a link or continuing to browse otherwise, you agree to the use of cookies.</p></div></div></div></div>';
+	}
+
+}
